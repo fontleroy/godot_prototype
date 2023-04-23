@@ -1,1 +1,7 @@
+res://Overworld.tscn
+res://Camera2D.gd
+res://main.tscn
 res://test.tscn
+res://player.tscn
+res://AnimatedSprite2D.gd
+res://player.gd

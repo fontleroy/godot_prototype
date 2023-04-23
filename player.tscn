@@ -1,7 +1,80 @@
-[gd_scene format=3 uid="uid://qfu71q1xqnbx"]
+[gd_scene load_steps=11 format=3 uid="uid://qfu71q1xqnbx"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_8cofk"]
+[ext_resource type="Texture2D" uid="uid://b8fyiya2xybhs" path="res://player.png" id="1_yx3md"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1rqw"]
+atlas = ExtResource("1_yx3md")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i0l1"]
+atlas = ExtResource("1_yx3md")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5t0b"]
+atlas = ExtResource("1_yx3md")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrjxb"]
+atlas = ExtResource("1_yx3md")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g08j2"]
+atlas = ExtResource("1_yx3md")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42r2c"]
+atlas = ExtResource("1_yx3md")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_63cri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1rqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i0l1")
+}],
+"loop": true,
+"name": &"WalkDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5t0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrjxb")
+}],
+"loop": true,
+"name": &"WalkSide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g08j2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42r2c")
+}],
+"loop": true,
+"name": &"WalkUp",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ynib6"]
+radius = 7.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_8cofk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(322, 166)
+sprite_frames = SubResource("SpriteFrames_63cri")
+animation = &"WalkUp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(322, 166)
+shape = SubResource("CapsuleShape2D_ynib6")
